@@ -18,7 +18,6 @@
   roles:
     - ansible-role-repo-epel
     - ansible-role-repo-remi
-    - ansible-role-selinux
     - ansible-role-updates
     - ansible-role-fail2ban-firewalld
     - ansible-role-docker

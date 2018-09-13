@@ -1,15 +1,15 @@
 [submodule "roles/ansible-role-docker"]
 	path = roles/ansible-role-docker
-	url = git@github.com:HauptJ/ansible-role-docker.git
+	url = https://github.com/HauptJ/ansible-role-docker.git
 [submodule "roles/ansible-role-fail2ban-firewalld"]
 	path = roles/ansible-role-fail2ban-firewalld
-	url = git@github.com:HauptJ/ansible-role-fail2ban-firewalld.git
+	url = https://github.com/HauptJ/ansible-role-fail2ban-firewalld.git
 [submodule "roles/ansible-role-updates"]
 	path = roles/ansible-role-updates
-	url = git@github.com:HauptJ/ansible-role-updates.git
+	url = https://github.com/HauptJ/ansible-role-updates.git
 [submodule "roles/ansible-role-repo-epel"]
 	path = roles/ansible-role-repo-epel
-	url = git@github.com:HauptJ/ansible-role-repo-epel.git
+	url = https://github.com/HauptJ/ansible-role-repo-epel.git
 [submodule "roles/ansible-role-repo-remi"]
 	path = roles/ansible-role-repo-remi
-	url = git@github.com:HauptJ/ansible-role-repo-remi.git
+	url = https://github.com/HauptJ/ansible-role-repo-remi.git

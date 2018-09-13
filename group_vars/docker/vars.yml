@@ -2,7 +2,7 @@
 docker_user: "{{ vault_docker_user }}"
 docker_compose_ver: "{{ vault_docker_compose_ver }}"
 docker_swarm_state: "{{ vault_docker_swarm_state }}"
-docker_swarm_master_ip: "{{ vault_docker_warm_master_ip }}"
+docker_swarm_master_ip: "{{ vault_docker_swarm_master_ip }}"
 docker_swarm_master_port: "{{ vault_docker_swarm_master_port }}"
 docker_swarm_join_token: "{{ vault_docker_swarm_join_token }}"
 

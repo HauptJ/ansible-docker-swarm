@@ -1,1 +1,4 @@
 vault.yml
+*.vault
+.vagrant
+*.retry
