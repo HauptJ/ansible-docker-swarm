@@ -1,0 +1,6 @@
+[docker]
+localhost
+
+[docker:vars]
+ansible_connection=local
+ansible_user=root

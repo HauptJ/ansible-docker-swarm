@@ -1,0 +1,19 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   08-Sept-2018
+# @Email:  josh@hauptj.com
+# @Filename: deploy.yml
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 08-Sept-2018
+
+---
+- name: Updates FirewallD settings
+  hosts: docker
+  vars_files:
+    - "group_vars/firewall/vars.yml"
+    - "group_vars/firewall/vault.yml"
+  #strategy: debug
+  #remote_user: centos
+  become: yes
+
+  roles:
+    - ansible-role-fail2ban-firewalld

@@ -1,0 +1,2 @@
+---
+open_ports: "{{ vault_open_ports }}"

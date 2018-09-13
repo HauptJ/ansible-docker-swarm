@@ -1,0 +1,13 @@
+vault_docker_user: root
+vault_docker_compose_ver: 1.18.0
+vault_docker_swarm_state: master
+vault_docker_swarm_master_ip: 127.0.0.1
+vault_docker_swarm_master_port: 2377
+vault_docker_swarm_join_token: test
+
+##### Fail2Ban Firewalld #####
+vault_cf_email: test@example.com
+vault_f2b_destemail: test@example.com
+vault_f2b_sender: test@example.com
+vault_cf_key: test
+vault_f2b_whitelist_ip: 8.8.8.8
