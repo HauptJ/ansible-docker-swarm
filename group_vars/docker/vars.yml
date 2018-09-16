@@ -1,4 +1,5 @@
 ---
+##### Docker #####
 docker_user: "{{ vault_docker_user }}"
 docker_compose_ver: "{{ vault_docker_compose_ver }}"
 docker_swarm_state: "{{ vault_docker_swarm_state }}"
@@ -12,3 +13,12 @@ f2b_destemail: "{{ vault_f2b_destemail }}"
 f2b_sender: "{{ vault_f2b_sender }}"
 cf_key: "{{ vault_cf_key }}"
 f2b_whitelist_ip: "{{ vault_f2b_whitelist_ip }}"
+
+# In Seconds
+f2b_bantime: "{{ vault_f2b_bantime }}"
+f2b_findtime: "{{ vault_f2b_findtime }}"
+f2b_maxretry: "{{ vault_f2b_maxretry }}"
+
+##### Git #####
+git_user_name: "{{ vault_git_user_name }}"
+git_user_email: "{{ vault_git_user_email }}"

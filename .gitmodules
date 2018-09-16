@@ -13,3 +13,6 @@
 [submodule "roles/ansible-role-repo-remi"]
 	path = roles/ansible-role-repo-remi
 	url = https://github.com/HauptJ/ansible-role-repo-remi.git
+[submodule "roles/ansible-role-git"]
+	path = roles/ansible-role-git
+	url = https://github.com/HauptJ/ansible-role-git.git
