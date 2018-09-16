@@ -11,3 +11,8 @@ vault_f2b_destemail: test@example.com
 vault_f2b_sender: test@example.com
 vault_cf_key: test
 vault_f2b_whitelist_ip: 8.8.8.8
+
+# In Seconds
+vault_f2b_bantime: 3600
+vault_f2b_findtime: 600
+vault_f2b_maxretry: 5
