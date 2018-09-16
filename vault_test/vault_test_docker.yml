@@ -16,3 +16,7 @@ vault_f2b_whitelist_ip: 8.8.8.8
 vault_f2b_bantime: 3600
 vault_f2b_findtime: 600
 vault_f2b_maxretry: 5
+
+##### Git #####
+vault_git_user_name: Alice Bob
+vault_git_user_email: example@example.com
