@@ -6,6 +6,7 @@ docker_swarm_state: "{{ vault_docker_swarm_state }}"
 docker_swarm_master_ip: "{{ vault_docker_swarm_master_ip }}"
 docker_swarm_master_port: "{{ vault_docker_swarm_master_port }}"
 docker_swarm_join_token: "{{ vault_docker_swarm_join_token }}"
+docker_host_ipv6_subnet:  "{{ vault_docker_host_ipv6_subnet }}"
 
 ##### Fail2Ban Firewalld #####
 cf_email: "{{ vault_cf_email }}"
