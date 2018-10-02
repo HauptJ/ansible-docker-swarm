@@ -105,7 +105,7 @@ Vagrant.configure("2") do |config|
       # Mac Address
       hv.mac = $docker_mac
       # Faster cloning and uses less disk space
-      hv.differencing_disk = true
+      hv.linked_clone = true
   	end
 
     docker.vm.provision "shell", inline: <<-SHELL
