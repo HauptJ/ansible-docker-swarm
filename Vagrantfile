@@ -75,40 +75,68 @@ Vagrant.configure("2") do |config|
   # end
   #
 
-  # Configure SMB Directory Sharing
-  # NOTE:
-  # Export VAGRANT_SMB_USERNAME: $env:VAGRANT_SMB_USERNAME="username"
-  # Export VAGRANT_SMB_PASSWORD: $env:VAGRANT_SMB_PASSWORD="password"
-  config.vm.synced_folder '.', '/vagrant', {
-    type: 'smb', mount_options: ['vers=3.0'],
-    smb_username: ENV['VAGRANT_SMB_USERNAME'],
-    smb_password: ENV['VAGRANT_SMB_PASSWORD']
-  }
+  config.vm.define "centos_hv" do |centos_hv|
+    centos_hv.vm.box = $centos_hv_box
+    centos_hv.vm.box_version = $centos_box_ver
+    centos_hv.ssh.username = $centos_hv_ssh_user
 
-  # NOTE: This is specific for my machine
-  # Change bridge: "LANBridge" to the name of your
-  # External V-Switch
-  config.vm.network "public_network", bridge: "LANBridge"
+    # Configure SMB Directory Sharing
+    # NOTE:
+    # Export VAGRANT_SMB_USERNAME: $env:VAGRANT_SMB_USERNAME="username"
+    # Export VAGRANT_SMB_PASSWORD: $env:VAGRANT_SMB_PASSWORD="password"
+    centos_hv.vm.synced_folder '.', '/vagrant', {
+      type: 'smb', mount_options: ['vers=3.0'],
+      smb_username: ENV['VAGRANT_SMB_USERNAME'],
+      smb_password: ENV['VAGRANT_SMB_PASSWORD']
+    }
 
+    # NOTE: This is specific for my machine
+    # Change bridge: "LANBridge" to the name of your
+    # External V-Switch
+    centos_hv.vm.network "public_network", bridge: "LANBridge"
 
-  config.vm.define "docker" do |docker|
-    docker.vm.box = $centos_box
-    docker.vm.box_version = $centos_box_ver
-    docker.ssh.username = $ssh_user
-
-  	docker.vm.provider "hyperv" do |hv|
-  		hv.vmname = $docker_vmname
+  	centos_hv.vm.provider "hyperv" do |hv|
+  		hv.vmname = $vmname
   		# With nested virtualization, at least 2 CPUs are needed.
   		hv.cpus = $vcpus
   		# With nested virtualization, at least 4GB of memory is needed.
   		hv.memory = $vmem
       # Mac Address
-      hv.mac = $docker_mac
+      hv.mac = $centos_hv_mac
       # Faster cloning and uses less disk space
       hv.linked_clone = true
   	end
 
-    docker.vm.provision "shell", inline: <<-SHELL
+    centos_hv.vm.provision "shell", inline: <<-SHELL
+    # Install Dependencies from Ansible Galaxy
+    pushd /vagrant
+    # Run Ansible Playbook
+    cp deploy.vault ~/deploy.vault
+    chmod -x ~/deploy.vault
+    ansible-playbook docker.yml --vault-password-file ~/deploy.vault --skip-tags "open_ports,close_ports,ipv6"
+    popd
+    chown -R vagrant:vagrant /vagrant
+    SHELL
+
+  end
+
+
+  config.vm.define "fedora_vb" do |fedora_vb|
+    fedora_vb.vm.box = $fedora_vb_box
+    fedora_vb.vm.box_version = $centos_box_ver
+
+  	fedora_vb.vm.provider "virtualbox" do |vb|
+  		vb.vmname = $vmname
+  		vb.cpus = $vcpus
+  		# With nested virtualization, at least 4GB of memory is needed.
+  		vb.memory = $vmem
+      # Mac Address
+      #vb.mac = $fedora_vb_mac
+      # Faster cloning and uses less disk space
+      vb.linked_clone = true
+  	end
+
+    centos_hv.vm.provision "shell", inline: <<-SHELL
     # Install Dependencies from Ansible Galaxy
     pushd /vagrant
     # Run Ansible Playbook

@@ -1,9 +1,11 @@
 [submodule "roles/ansible-role-docker"]
 	path = roles/ansible-role-docker
 	url = https://github.com/HauptJ/ansible-role-docker.git
+	branch = "dev"
 [submodule "roles/ansible-role-fail2ban-firewalld"]
 	path = roles/ansible-role-fail2ban-firewalld
 	url = https://github.com/HauptJ/ansible-role-fail2ban-firewalld.git
+	branch = "pipeline"
 [submodule "roles/ansible-role-updates"]
 	path = roles/ansible-role-updates
 	url = https://github.com/HauptJ/ansible-role-updates.git
