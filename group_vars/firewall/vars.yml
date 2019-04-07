@@ -1,4 +1,2 @@
 ---
 open_ports: "{{ vault_open_ports }}"
-
-close_ports: "{{ vault_close_ports }}"
