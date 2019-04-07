@@ -2,6 +2,3 @@ vault.yml
 *.vault
 .vagrant
 *.retry
-*.key
-*.pub
-ssh_config

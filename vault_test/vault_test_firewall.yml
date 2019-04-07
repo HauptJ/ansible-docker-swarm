@@ -1,8 +1,0 @@
----
-vault_open_ports:
-  -80/tcp
-  -443/tcp
-
-vault_close_ports:
-  -80/tcp
-  -443/tcp
