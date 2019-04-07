@@ -1,9 +1,3 @@
-# @Author: Haupt Joshua <HauptJ>
-# @Date:   08-Sept-2018
-# @Email:  josh@hauptj.com
-# @Filename: deploy.yml
-# @Last modified by:   Haupt Joshua
-# @Last modified time: 08-Sept-2018
 
 ---
 - name: Install Fail2ban and Docker Swarm
@@ -16,8 +10,9 @@
   become: yes
 
   roles:
-    - ansible-role-repo-epel
-    - ansible-role-repo-remi
-    - ansible-role-updates
-    - ansible-role-fail2ban-firewalld
-    - ansible-role-docker
+    - { role: ansible-role-repo-epel, when: ansible_distribution == 'CentOS' }
+    - { role: ansible-role-repo-remi, when: ansible_distribution == 'CentOS' }
+    - { role: ansible-role-updates }
+    - { role: ansible-role-fail2ban-firewalld }
+    - { role: ansible-role-docker }
+    - { role: ansible-role-git }
